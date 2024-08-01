@@ -1,44 +1,50 @@
-export const sidebarLinks = [
-    {
-      imgURL: "/assets/home.svg",
-      route: "/",
-      label: "Home",
-    },
-    {
-      imgURL: "/assets/search.svg",
-      route: "/search",
-      label: "Search",
-    },
-    {
-      imgURL: "/assets/heart.svg",
-      route: "/activity",
-      label: "Activity",
-    },
-    {
-      imgURL: "/assets/create.svg",
-      route: "/create-thread",
-      label: "Create Thread",
-    },
-    {
-      imgURL: "/assets/community.svg",
-      route: "/communities",
-      label: "Communities",
-    },
-    {
-      imgURL: "/assets/user.svg",
-      route: "/profile",
-      label: "Profile",
-    },
-  ];
-  
-  export const profileTabs = [
-    { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-    { value: "replies", label: "Replies", icon: "/assets/members.svg" },
-    { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
-  ];
-  
-  export const communityTabs = [
-    { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-    { value: "members", label: "Members", icon: "/assets/members.svg" },
-    { value: "requests", label: "Requests", icon: "/assets/request.svg" },
-  ];
+import React from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
+
+interface SidebarDataTypes {
+  title: string;
+  path: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  cName: string;
+}
+
+export const SidebarData: SidebarDataTypes[] = [
+  {
+    title: 'Home',
+    path: '/',
+    icon: AiIcons.AiFillHome,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Reports',
+    path: '/reports',
+    icon: IoIcons.IoIosPaper,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Products',
+    path: '/products',
+    icon: FaIcons.FaCartPlus,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Team',
+    path: '/team',
+    icon: IoIcons.IoMdPeople,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Messages',
+    path: '/messages',
+    icon: FaIcons.FaEnvelopeOpenText,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Support',
+    path: '/support',
+    icon: IoIcons.IoMdHelpCircle,
+    cName: 'nav-text'
+  }
+];
