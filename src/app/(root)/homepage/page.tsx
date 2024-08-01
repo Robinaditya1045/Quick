@@ -5,6 +5,17 @@ import { currentUser } from '@clerk/nextjs/server';
 import TaskCard from '@/components/cards/TaskCard';
 import { tasks } from '@/constants/data';
 
+const getGreeting = (date: Date) => {
+  const hours = date.getHours();
+  if (hours < 12) {
+    return 'Good Morning';
+  } else if (hours < 18) {
+    return 'Good Afternoon';
+  } else {
+    return 'Good Evening';
+  }
+};
+
 const Page = async() => {
       const user = await currentUser();
       const completedTasks = tasks.filter((task) => (
@@ -14,10 +25,13 @@ const Page = async() => {
         task.completed === false
       ));
 
+      const now = new Date(); // Get current date and time
+      const greeting = getGreeting(now); // Determine the appropriate greeting
+
   return (
     <div className='w-full min-h-screen bg-gray-900 px-20'>
       <p className='text-2xl text-white pt-8 text-center'>
-        Good Evening, {user?.firstName} {user?.lastName}
+      {greeting}, {user?.firstName} {user?.lastName}
       </p>
       <p className='mt-20 backdrop:w-full text-white text-xl'>Remaining tasks</p>
       <div className='mt-10 grid grid-cols-4 gap-4'>
