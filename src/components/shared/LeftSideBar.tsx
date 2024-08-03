@@ -26,7 +26,7 @@ const LeftSideBar = () => {
           <li>
             <Link href="/page1" passHref>
               <div className="flex items-center p-4 hover:bg-gray-700 cursor-pointer">
-                <span className="text-sm font-medium">Page 1</span>
+                <span className="text-sm font-medium">Calender</span>
               </div>
             </Link>
           </li>
