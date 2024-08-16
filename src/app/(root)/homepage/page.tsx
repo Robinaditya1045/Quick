@@ -1,9 +1,9 @@
+"use client"
 
-
-import React from 'react';
-import { currentUser } from '@clerk/nextjs/server';
 import TaskCard from '@/components/cards/TaskCard';
 import { tasks } from '@/constants/data';
+import { useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 
 const getGreeting = (date: Date) => {
   const hours = date.getHours();
@@ -16,8 +16,7 @@ const getGreeting = (date: Date) => {
   }
 };
 
-const Page = async() => {
-      const user = await currentUser();
+const Page = () => {
       const completedTasks = tasks.filter((task) => (
         task.completed === true
       ) );
@@ -28,11 +27,13 @@ const Page = async() => {
       const now = new Date(); // Get current date and time
       const greeting = getGreeting(now); // Determine the appropriate greeting
 
+      const session = useSession();
   return (
     <div className='w-full min-h-screen bg-gray-900 px-20'>
       <p className='text-2xl text-white pt-8 text-center'>
-      {greeting}, {user?.firstName} {user?.lastName}
+      {greeting}
       </p>
+      <p className='text-white'>{JSON.stringify(session)}</p>
       <p className='mt-20 backdrop:w-full text-white text-xl'>Remaining tasks</p>
       <div className='mt-10 grid grid-cols-4 gap-4'>
         {incompleteTasks.map((task) => (
