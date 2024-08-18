@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 const page = () => {
     const handleSignIn = async () => {
-        await signIn("google", { callbackUrl: '/homepage' });
+        await signIn("google", { callbackUrl: '/tasks' });
       };
       
   return (
