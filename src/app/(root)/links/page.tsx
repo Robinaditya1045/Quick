@@ -6,6 +6,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import OpenLinkDialogButton from '@/components/cta/OpenLinkDialogButton'; 
 import { useEffect, useState } from 'react';
 import { default_thumbnail1 } from '../../../../public/assets';
+import { StaticImageData } from 'next/image';
+
+interface Link {
+  id: number;
+  title: string;
+  url: string;
+  thumbnail?: string | StaticImageData;
+  description?: string;
+  onDelete: (id: number) => void;
+}
 
 
 const getGreeting = (date: Date) => {
@@ -26,7 +36,7 @@ const Page = () => {
   const session = useSession();
   const username = session.data?.user?.name as string
 
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState<Link[]>([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -38,7 +48,7 @@ const Page = () => {
         }
         const data = await response.json();
         setLinks(data);
-      } catch (err) {
+      } catch (err:any) {
         setError(err.message);
       }
     };
@@ -65,7 +75,7 @@ const Page = () => {
         {links.map(link => (
           <LinkCard
             key={link.id}
-            id={link.id}
+            id={link.id} 
             title={link.title}
             url={link.url}
             thumbnail={link.thumbnail ? link.thumbnail : default_thumbnail1}

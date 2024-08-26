@@ -18,7 +18,7 @@ interface TaskTypes {
   title: string;
   description: string;
   completed: boolean;
-  targetTime: string;
+  targetTime?: string | undefined
 }
 
 
@@ -26,7 +26,7 @@ const TaskCard = ({ id, title, description, completed }: TaskTypes) => {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
-  const handleUpdate = (updatedTask) => {
+  const handleUpdate = (updatedTask: any) => {
     // Handle the updated task here, e.g., updating the task list in state
     console.log("Task updated:", updatedTask);
   };
@@ -43,7 +43,7 @@ const TaskCard = ({ id, title, description, completed }: TaskTypes) => {
 
       // Handle task deletion, e.g., remove task from state
       console.log("Task deleted:", id);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Failed to delete task:", error.message);
     }
   };
@@ -67,11 +67,11 @@ const TaskCard = ({ id, title, description, completed }: TaskTypes) => {
       </Card>
 
       <TaskEditDialog
-        isOpen={isEditDialogOpen}
-        onClose={() => setIsEditDialogOpen(false)}
-        task={{ id, title, description }}
-        onUpdate={handleUpdate}
-      />
+  isOpen={isEditDialogOpen}
+  onClose={() => setIsEditDialogOpen(false)}
+  task={{ id, title, description}}  // Ensure targetTime is provided
+  onUpdate={handleUpdate}
+/>
 
         <TaskDeleteConfirmationDialog
         isOpen={isDeleteDialogOpen}

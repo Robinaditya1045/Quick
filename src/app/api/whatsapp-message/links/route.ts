@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
                 }
                 thumbnail = videoData.thumbnails.high.url;
                 description = videoData.description;
-            } catch (error) {
+            } catch (error:any) {
                 console.error('Failed to fetch YouTube data:', error.response?.data || error.message);
                 return NextResponse.json({ error: 'Failed to fetch YouTube data' });
             }

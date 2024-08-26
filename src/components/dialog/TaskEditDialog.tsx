@@ -5,12 +5,30 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 
-const TaskEditDialog = ({ isOpen, onClose, task, onUpdate }) => {
+interface TaskEditDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  task: {
+    id: number;
+    title: string;
+    description: string;
+    targetTime?: string; // Make targetTime optional by adding the '?'
+  };
+  onUpdate: (updatedTask: {
+    id: number;
+    title: string;
+    description: string;
+    targetTime?: string; // Also make it optional here
+  }) => void;
+}
+
+
+const TaskEditDialog = ({ isOpen, onClose, task, onUpdate }: TaskEditDialogProps) => {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
-  const [targetTime, setTargetTime] = useState(task.targetTime);
+  const [targetTime, setTargetTime] = useState(task.targetTime|| "");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
 
     try {
@@ -36,7 +54,7 @@ const TaskEditDialog = ({ isOpen, onClose, task, onUpdate }) => {
 
       onUpdate(updatedTask);
       onClose();
-    } catch (error) {
+    } catch (error:any) {
       console.error("Failed to update task:", error.message);
       alert("Failed to update task. Please try again.");
     }

@@ -18,6 +18,15 @@ const getGreeting = (date: Date) => {
   }
 };
 
+interface TaskTypes {
+  id: number;
+  title: string;
+  description: string;
+  completed: boolean;
+  targetTime?: string;
+  status:string
+}
+
 const Page = () => {
 
       const now = new Date(); // Get current date and time
@@ -26,7 +35,7 @@ const Page = () => {
       const session = useSession();
       const username = session.data?.user?.name as string
 
-      const [tasks, setTasks] = useState([]);
+      const [tasks, setTasks] = useState<TaskTypes[]>([]);
       const [error, setError] = useState(null);
     
       useEffect(() => {
@@ -38,7 +47,7 @@ const Page = () => {
             }
             const data = await response.json();
             setTasks(data);
-          } catch (err) {
+          } catch (err:any) {
             setError(err.message);
           }
         };

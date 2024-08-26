@@ -3,7 +3,13 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-const TaskDeleteConfirmationDialog = ({ isOpen, onClose, onDelete }) => {
+interface TaskDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onDelete: () => void;
+}
+
+const TaskDeleteConfirmationDialog:React.FC<TaskDialogProps> = ({ isOpen, onClose, onDelete }) => {
   const handleDelete = async () => {
     await onDelete();
     onClose();

@@ -68,10 +68,13 @@ export const authConfig: NextAuthOptions = {
         // Include user.id in the session
         const dbUser = await prisma.user.findUnique({
           where: { email: session.user?.email as string },
-        })
-        session.user.id = dbUser?.id
-        return session
-      },
+        });
+      
+        // Ensure dbUser.id is a string or handle the case where it is undefined
+        session.user.id = dbUser?.id.toString() ?? '1'; // Provide a default value or handle the case as needed
+      
+        return session;
+      }
     },
     
 }

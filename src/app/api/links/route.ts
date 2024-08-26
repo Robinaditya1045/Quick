@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'User not authenticated' }, { status: 401 });
   }
 
-  const userId = session.user.id;
+  const userId = session.user.id as string;
   const { title, url } = await request.json();
 
   let thumbnail = '';
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
       url,
       thumbnail,
       description,
-      userId,  // Use the retrieved userId
+      userId: Number(userId), // Use the retrieved userId
     },
   });
 
@@ -69,7 +69,7 @@ export async function GET() {
     // Fetch links for the authenticated user
     const links = await prisma.link.findMany({
       where: {
-        userId: userId,
+        userId: Number(userId),
       },
     });
 

@@ -1,5 +1,6 @@
 import { NextResponse,NextRequest } from 'next/server';
 import prisma from '@/lib/prisma'; // Adjust the path based on your project structure
+import { any, boolean, number } from 'zod';
 
 export async function PUT(req: NextRequest, { params }: { params: { taskId: Number } }) {
   try {
@@ -13,12 +14,12 @@ export async function PUT(req: NextRequest, { params }: { params: { taskId: Numb
 
     // Update the task in the database
     const updatedTask = await prisma.tasks.update({
-      where: { id: parseInt(taskId) },
+      where: { id: Number(taskId) },
       data: {
         title,
         description,
         targetTime: new Date(targetTime),
-        completed,
+        completedAt: completed ? new Date() : null, // Set the completion time or null
       },
     });
 
@@ -34,10 +35,10 @@ export async function DELETE(req: NextRequest, { params }: { params: { taskId: N
   
     try {
       await prisma.tasks.delete({
-        where: { id: parseInt(taskId) },
+        where: { id: Number(taskId) },
       });
       return NextResponse.json({ success: true });
-    } catch (error) {
+    } catch (error:any) {
       return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }
   }

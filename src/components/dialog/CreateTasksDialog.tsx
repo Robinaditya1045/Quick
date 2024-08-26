@@ -6,13 +6,18 @@ import { Button } from '@components/ui/button';
 import { Input } from '@components/ui/input';
 import { useSession } from 'next-auth/react';
 
-const TaskDialog = ({ isOpen, onClose }) => {
+interface TaskDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const TaskDialog: React.FC<TaskDialogProps> = ({ isOpen, onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [targetTime, setTargetTime] = useState('');
   const { data: session } = useSession();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
   
     try {
@@ -44,7 +49,7 @@ const TaskDialog = ({ isOpen, onClose }) => {
       }
   
       onClose(); // Close dialog on success
-    } catch (error) {
+    } catch (error:any) {
       console.log('Failed to create task:', error.message);
       alert('Failed to create task. Please try again.');
     }

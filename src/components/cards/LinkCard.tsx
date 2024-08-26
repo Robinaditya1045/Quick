@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { default_thumbnail1 } from "../../../public/assets";
 
 interface LinkCardProps {
   id: number;
   title: string;
   url: string;
-  thumbnail?: string;
+  thumbnail?: string | StaticImageData;
   description?: string;
   onDelete: (id: number) => void;
 }

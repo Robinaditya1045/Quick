@@ -33,7 +33,7 @@ export async function GET(req: Request) {
   const userId = session.user.id;
 
   const tasks = await prisma.tasks.findMany({
-      where: { userId },
+      where: { userId:Number(userId) },
       orderBy: { createdAt: 'desc' },
   });
 
