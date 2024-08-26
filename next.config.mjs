@@ -6,11 +6,16 @@ const nextConfig = {
       ignoreDuringBuilds: true,
     },
     images: {
-      domains: ['lh3.googleusercontent.com'],
+      domains: ['lh3.googleusercontent.com','i.ytimg.com', 'example.com'],
       remotePatterns: [
         {
           protocol: "https",
           hostname: "img.clerk.com",
+        },
+        {
+          protocol: 'https',
+          hostname: 'lh3.googleusercontent.com',
+          pathname: '/**',
         },
         {
           protocol: "https",
