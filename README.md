@@ -13,7 +13,7 @@ This project is a comprehensive web application built with Next.js, Prisma, and 
 
 ### Project's basic/ foundation level Architecture
 
-![arch](./assets/Screenshot%202024-08-27%20155317.png)
+![arch](./assets/projArch.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://githubcom/vercel/next.js/tree/canary/packages/create-next-app).
 
