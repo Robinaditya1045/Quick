@@ -12,7 +12,8 @@ This project is a comprehensive web application built with Next.js, Prisma, and 
 - User Authentication: Secure user authentication implemented with NextAuth, including Google Sign-In.
 
 ### Project's basic/ foundation level Architecture
-![arch](./public/assets/Screenshot 2024-08-27 155317.png)
+
+![arch](./assets/Screenshot%202024-08-27%20155317.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://githubcom/vercel/next.js/tree/canary/packages/create-next-app).
 
