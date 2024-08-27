@@ -1,10 +1,10 @@
-### Quick
+# Quick
 
 ## Description
 
 This project is a comprehensive web application built with Next.js, Prisma, and TypeScript. It integrates various features such as task management, link management, and WhatsApp message handling. The application allows users to create, update, and manage tasks and links. Additionally, it supports WhatsApp integration, enabling users to send and receive messages that trigger specific actions within the app. The app is deployed on Vercel and uses a PostgreSQL database managed via Prisma ORM.
 
-# Features
+### Features
 
 - Task Management: Create, update, and manage tasks with deadlines
 - Link Management: Add, edit, and delete links with associated metadata fetched from APIs like YouTube.
