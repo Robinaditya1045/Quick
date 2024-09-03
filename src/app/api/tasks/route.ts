@@ -12,7 +12,7 @@ export async function POST(req:NextRequest) {
         title: data.title,
         description: data.description,
         targetTime: new Date(data.targetTime),
-        userId: data.userId,
+        userId: parseInt(data.userId ),
       },
     });
 
