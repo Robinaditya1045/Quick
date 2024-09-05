@@ -9,6 +9,10 @@ import {
   LineChart
 } from "lucide-react";
 
+import { FaTasks } from "react-icons/fa";
+import { IoLinkSharp } from "react-icons/io5";
+import { IoIosSettings } from "react-icons/io";
+
 import { Badge } from "@components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,31 +50,32 @@ export function Sidebar() {
               href="/tasks"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <ShoppingCart className="h-4 w-4" />
+              {/* <ShoppingCart className="h-4 w-4" /> */}
+              <FaTasks className="h-4 w-4" />
               Tasks
-              <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+              {/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                 6
-              </Badge>
+              </Badge> */}
             </Link>
             <Link
               href="/links"
               className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
             >
-              <Package className="h-4 w-4" />
+              <IoLinkSharp className="h-4 w-4" />
               Links
             </Link>
             <Link
               href="/settings"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <Users className="h-4 w-4" />
+              <IoIosSettings className="h-4 w-4" />
               Settings
             </Link>
             <Link
               href="/userguide"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <LineChart className="h-4 w-4" />
+              <Users className="h-4 w-4" />
               User Guide
             </Link>
           </nav>

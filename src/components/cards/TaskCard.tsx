@@ -59,8 +59,8 @@ const TaskCard = ({ id, title, description, completed }: TaskTypes) => {
         <CardContent>
           <p>{description}</p>
         </CardContent>
-        <CardFooter>
-          <p>{completed ? "This task is complete." : "This task is still pending."}</p>
+        <CardFooter className="flex items-center gap-4">
+          {/* <p>{completed ? "This task is complete." : "This task is still pending."}</p> */}
           <Button variant="outline" onClick={() => setIsEditDialogOpen(true)}>Edit</Button>
           <Button variant="destructive" onClick={() => setIsDeleteDialogOpen(true)}>Delete</Button>
         </CardFooter>

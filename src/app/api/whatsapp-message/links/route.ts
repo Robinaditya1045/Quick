@@ -51,10 +51,11 @@ export async function POST(request: NextRequest) {
                 console.error('Failed to fetch YouTube data:', error.response?.data || error.message);
                 return NextResponse.json({ error: 'Failed to fetch YouTube data' });
             }
-        } else {
-            console.error('Provided URL is not a YouTube link');
-            return NextResponse.json({ error: 'Provided URL is not a YouTube link' });
-        }
+        } 
+        // else {
+        //     console.error('Provided URL is not a YouTube link');
+        //     return NextResponse.json({ error: 'Provided URL is not a YouTube link' });
+        // }
 
         console.log("Saving to database:", { title, url, thumbnail, description });
 
