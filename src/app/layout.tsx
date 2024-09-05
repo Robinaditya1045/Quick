@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import { Providers } from "./(root)/providers"
+import { Providers } from "./providers"
 import { Sidebar } from "@/components/shared/Sidebar";
 import { TopBar } from "@/components/shared/TopBar";
 

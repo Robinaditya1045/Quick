@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import { Skeleton } from "@/components/ui/skeleton";
 import OpenLinkDialogButton from '@/components/cta/OpenLinkDialogButton'; 
 import { useEffect, useState } from 'react';
-import { default_thumbnail1 } from '../../../../public/assets';
+import { default_thumbnail1 } from '../../../public/assets';
 import { StaticImageData } from 'next/image';
 
 interface Link {
